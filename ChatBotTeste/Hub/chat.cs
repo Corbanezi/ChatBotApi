@@ -9,5 +9,9 @@ namespace ChatBotTeste
             Clients.All.SendAsync("newMessage", userName, message);
         }
 
+        public void NewUser(string userName)
+        {
+            Clients.All.SendAsync("newUser", userName);
+        }
     }
 }

@@ -23,6 +23,7 @@ namespace ChatBotTeste
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddSignalR();
+            services.AddCors();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -41,6 +42,11 @@ namespace ChatBotTeste
             app.UseStaticFiles();
 
             app.UseRouting();
+            app.UseCors(p =>
+            {
+                p.WithOrigins("http://localhost:4200")
+                .AllowAnyHeader().AllowAnyMethod().AllowCredentials();
+            });
 
             app.UseAuthorization();
 
