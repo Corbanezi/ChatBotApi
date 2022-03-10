@@ -52,7 +52,7 @@ namespace ChatBotTeste
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapHub<chat>("/chat");
+                endpoints.MapHub<Chat>("/chat");
             });
         }
     }
